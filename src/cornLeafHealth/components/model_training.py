@@ -3,7 +3,7 @@ from zipfile import ZipFile
 import tensorflow as tf
 from pathlib import Path
 from cornLeafHealth.entity.config_entity import TrainingConfig
-
+from cornLeafHealth.utils.common import save_json
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -56,6 +56,11 @@ class Training:
             **dataflow_kwargs
             )
         
+        # Save labels dict as json
+        labels_dict = self.train_generator.class_indices
+        labels_dict_inv = dict(zip(labels_dict.values(), labels_dict.keys()))
+        save_json(Path("labels_dict.json"),labels_dict_inv)
+        
         
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
@@ -78,7 +83,6 @@ class Training:
             model=self.model
             )
         
-        # additional save directory: model/
         self.save_model(
             path=self.config.prod_model_path,
             model=self.model

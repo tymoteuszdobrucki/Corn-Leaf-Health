@@ -2,13 +2,10 @@ import os
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+from cornLeafHealth.utils.common import load_json
+from pathlib import Path
 
-PREDICTION_DICT = {
-    0: "Blight",
-    1: "Common Rust",
-    2: "Gray Leaf Spot",
-    3: "Healthy"
-    }
+PREDICTION_DICT = load_json(Path("labels_dict.json"))
 
 class PredictionPipeline:
     
@@ -26,7 +23,8 @@ class PredictionPipeline:
         result = model.predict(test_image)
         result_argmax = np.argmax(model.predict(test_image), axis=1)[0]
         confidence = round(result[0][result_argmax]*100)
+        str_result_argmax = str(result_argmax)
         if result_argmax == 3:
-            return [{ "Prediction" : f"{PREDICTION_DICT[result_argmax]} with {confidence}% confidence"}]   
+            return [{ "Prediction" : f"{PREDICTION_DICT[str_result_argmax]} with {confidence}% confidence"}]   
         else:
-            return [{ "Prediction" : f"Disease ({PREDICTION_DICT[result_argmax]}) with {confidence}% confidence"}]    
+            return [{ "Prediction" : f"Disease ({PREDICTION_DICT[str_result_argmax]}) with {confidence}% confidence"}]    
