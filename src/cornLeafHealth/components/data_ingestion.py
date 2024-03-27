@@ -1,13 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar 23 14:02:12 2024
-
-@author: Dobrucki
-"""
-
 import os
-import zipfile
 import gdown
+import zipfile
 from cornLeafHealth import logger
 from cornLeafHealth.utils.common import get_size
 from cornLeafHealth.entity.config_entity import (DataIngestionConfig)
@@ -17,7 +10,6 @@ class DataIngestion:
         self.config = config
         
     def download_file(self) -> str:
-        
         try:
             url = self.config.source_URL
             zip_download_dir = self.config.local_data_file
@@ -31,9 +23,9 @@ class DataIngestion:
         except Exception as e:
             raise e
             
-
     def extract_zip(self):
         unzip_path = self.config.unzip_dir
         os.makedirs(unzip_path, exist_ok=True)
         with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
             zip_ref.extractall(unzip_path)
+        logger.info(f"Data extracted to {unzip_path}")

@@ -6,7 +6,6 @@ from pathlib import Path
 from cornLeafHealth.entity.config_entity import EvaluationConfig
 from cornLeafHealth.utils.common import save_json
 
-
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config

@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar 23 14:57:44 2024
-
-@author: Dobrucki
-"""
-
 import os
 import urllib.request as request
 from zipfile import ZipFile

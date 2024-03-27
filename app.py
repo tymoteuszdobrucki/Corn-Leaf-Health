@@ -1,16 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 25 00:01:29 2024
-
-@author: Dobrucki
-"""
-
-from flask import Flask, request, jsonify, render_template
 import os
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
 from cornLeafHealth.utils.common import decodeImage
 from cornLeafHealth.pipeline.prediction import PredictionPipeline
-
 
 os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
@@ -25,11 +17,8 @@ class ClientApp:
         
 @app.route("/", methods=['GET'])
 @cross_origin()
-
 def home():
     return render_template('index.html')
-
-
 
 @app.route("/train", methods=['GET','POST'])
 @cross_origin()

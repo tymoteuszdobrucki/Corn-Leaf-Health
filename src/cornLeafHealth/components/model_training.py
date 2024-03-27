@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar 23 16:29:13 2024
-
-@author: Dobrucki
-"""
-
 import os
 import urllib.request as request
 from zipfile import ZipFile
@@ -73,9 +66,6 @@ class Training:
     def train(self):
         self.steps_per_epoch = self.train_generator.samples // self.train_generator.batch_size
         self.validation_steps = self.valid_generator.samples // self.valid_generator.batch_size
-        
-        
-        
         self.model.fit(
             self.train_generator,
             epochs=self.config.params_epochs,

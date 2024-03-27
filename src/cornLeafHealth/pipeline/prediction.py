@@ -1,14 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 24 23:53:58 2024
-
-@author: Dobrucki
-"""
-
+import os
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-import os
 
 PREDICTION_DICT = {
     0: "Blight",
@@ -24,7 +17,6 @@ class PredictionPipeline:
         
         
     def predict(self):
-        
         model = load_model(os.path.join("model","model.h5"))
         imagename = self.filename
         test_image = image.load_img(imagename, target_size = (224,224))

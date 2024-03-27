@@ -1,18 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 22 22:16:06 2024
-
-@author: Dobrucki
-"""
-
 from cornLeafHealth import logger
 from cornLeafHealth.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from cornLeafHealth.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline
 from cornLeafHealth.pipeline.stage_03_model_training import ModelTrainingPipeline
 from cornLeafHealth.pipeline.stage_04_model_evaluation import ModelEvaluationPipeline
-
-logger.info("testing the logger")
-
 
 
 if __name__ == '__main__':

@@ -1,15 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar 23 14:03:29 2024
-
-@author: Dobrucki
-"""
-
 from cornLeafHealth.config.configuration import ConfigurationManager
 from cornLeafHealth.components.prepare_base_model import PrepareBaseModel
 from cornLeafHealth import logger
 
-STAGE_NAME = "Prepare base model"
+STAGE_NAME = "Model Preparation"
 
 class PrepareBaseModelTrainingPipeline:
     def __init__(self):
@@ -22,13 +15,16 @@ class PrepareBaseModelTrainingPipeline:
         prepare_base_model.update_base_model()
 
 
-
 if __name__ == '__main__':
     
     try:
-        logger.info(f">> STAGE {STAGE_NAME} started <<")
+        logger.info("############################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- STARTED...")
+        logger.info("############################################")
         obj = PrepareBaseModelTrainingPipeline()
         obj.main()
-        logger.info(f">> STAGE {STAGE_NAME} completed <<")
+        logger.info("############################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- COMPLETED.")
+        logger.info("############################################")
     except Exception as e:
         raise e

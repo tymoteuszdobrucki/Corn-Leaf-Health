@@ -1,5 +1,6 @@
-from dataclasses import dataclass
 from pathlib import Path
+from dataclasses import dataclass
+
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
@@ -7,7 +8,6 @@ class DataIngestionConfig:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
-
 
 @dataclass(frozen=True)
 class PrepareBaseModelConfig:

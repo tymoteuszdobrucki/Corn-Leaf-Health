@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 22 19:38:00 2024
-
-@author: Dobrucki
-"""
-
 import os
 from pathlib import Path
 import logging

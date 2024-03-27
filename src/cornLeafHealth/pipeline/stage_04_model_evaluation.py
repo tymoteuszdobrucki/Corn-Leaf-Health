@@ -2,7 +2,7 @@ from cornLeafHealth.config.configuration import ConfigurationManager
 from cornLeafHealth.components.model_evaluation import Evaluation
 from cornLeafHealth import logger
 
-STAGE_NAME = "Model evaluation"
+STAGE_NAME = "Model Evaluation"
 
 class ModelEvaluationPipeline:
     def __init__(self):
@@ -18,10 +18,14 @@ class ModelEvaluationPipeline:
 if __name__ == '__main__':
     
     try:
-        logger.info(f">> STAGE {STAGE_NAME} started <<")
+        logger.info("###########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- STARTED...")
+        logger.info("###########################################")
         obj = ModelEvaluationPipeline()
         obj.main()
-        logger.info(f">> STAGE {STAGE_NAME} completed <<")
+        logger.info("###########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- COMPLETED.")
+        logger.info("###########################################")
     except Exception as e:
         raise e
         
