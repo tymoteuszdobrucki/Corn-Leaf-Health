@@ -1,5 +1,4 @@
 import os
-import urllib.request as request
 from zipfile import ZipFile
 import tensorflow as tf
 from pathlib import Path
@@ -12,7 +11,7 @@ class Training:
     
     def get_base_model(self):
         self.model = tf.keras.models.load_model(
-            self.config.updated_base_model_path
+            self.config.base_model_path
             )
         
     def train_valid_generator(self):
@@ -76,6 +75,12 @@ class Training:
         
         self.save_model(
             path=self.config.trained_model_path,
+            model=self.model
+            )
+        
+        # additional save directory: model/
+        self.save_model(
+            path=self.config.prod_model_path,
             model=self.model
             )
         
