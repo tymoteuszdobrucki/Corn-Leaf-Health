@@ -9,39 +9,56 @@ if __name__ == '__main__':
     
     STAGE_NAME = "Data Ingestion"
     try:
-        logger.info(f">> STAGE {STAGE_NAME} started <<")
+        logger.info("#########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- STARTED...")
+        logger.info("#########################################")
         obj = DataIngestionTrainingPipeline()
         obj.main()
-        logger.info(f">> STAGE {STAGE_NAME} completed <<")
+        logger.info("#########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- COMPLETED.")
+        logger.info("#########################################")
     except Exception as e:
         raise e
         
-    STAGE_NAME = "Prepare base model"   
+    STAGE_NAME = "Model Preparation"   
     try:
-        logger.info(f">> STAGE {STAGE_NAME} started <<")
+        logger.info("############################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- STARTED...")
+        logger.info("############################################")
         obj = PrepareBaseModelTrainingPipeline()
         obj.main()
-        logger.info(f">> STAGE {STAGE_NAME} completed <<")
+        logger.info("############################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- COMPLETED.")
+        logger.info("############################################")
+    except Exception as e:
+        raise e        
+        
+    STAGE_NAME = "Model Training"   
+    try:
+        logger.info("#########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- STARTED...")
+        logger.info("#########################################")
+        obj = ModelTrainingPipeline()
+        obj.main()
+        logger.info("#########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- COMPLETED.")
+        logger.info("#########################################")
     except Exception as e:
         raise e
         
-    STAGE_NAME = "Model training"   
+    STAGE_NAME = "Model Evaluation" 
     try:
-        logger.info(f">> STAGE {STAGE_NAME} started <<")
-        obj = ModelTrainingPipeline()
-        obj.main()
-        logger.info(f">> STAGE {STAGE_NAME} completed <<")
-    except Exception as e:
-        raise e
-       
-    STAGE_NAME = "Model evaluation" 
-    try:
-        logger.info(f">> STAGE {STAGE_NAME} started <<")
+        logger.info("###########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- STARTED...")
+        logger.info("###########################################")
         obj = ModelEvaluationPipeline()
         obj.main()
-        logger.info(f">> STAGE {STAGE_NAME} completed <<")
+        logger.info("###########################################")
+        logger.info(f"STAGE ---> {STAGE_NAME} <--- COMPLETED.")
+        logger.info("###########################################")
     except Exception as e:
         raise e
+        
 
 
 
